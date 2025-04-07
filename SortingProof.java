@@ -24,16 +24,19 @@ import java.util.*;
 			//Begin the sorting algorithim
 			int insertMoves = 0;
 			int insertCompare = 0;
+			//start from the second element and move through it
 			for (int j = 1; j < insertionArray.length; j++)
             {
 			  insertCompare++; 
               int temp = insertionArray[j];
               int possibleIndex = j;
+              //While we are not at the begninning and the current value is less than the previous value
               while (possibleIndex > 0 && temp < insertionArray[possibleIndex - 1])
               {
 				  if(temp < insertionArray[possibleIndex - 1]) {
                      insertCompare++; 
                    }
+                  //Shift the larger value one position to the right
                   insertionArray[possibleIndex] = insertionArray[possibleIndex - 1];
                   possibleIndex--;
               }
@@ -56,6 +59,7 @@ import java.util.*;
     }
     
     public static void selectionSort() {
+		//Selection Sort code
 		int[] selectionArray = new int[100];
 	
          try {
@@ -72,10 +76,10 @@ import java.util.*;
 			//Begin selection the soritng algorithim
 			int selectionMoves = 0;
 			int selectionCompare = 0;
-			for (int j = 0; j < selectionArray.length - 1; j++)
+			for (int j = 0; j < selectionArray.length - 1; j++) //iterate through the array 
             {
               int minIndex = j;
-              for (int k = j + 1; k < selectionArray.length; k++)
+              for (int k = j + 1; k < selectionArray.length; k++) //search the rest of the array for a smaller element
               {
 			  	selectionCompare++; //increase the compare counter
                 if (selectionArray[k] < selectionArray[minIndex])
@@ -83,9 +87,9 @@ import java.util.*;
                     minIndex = k;
                 }
               }
-              int temp = selectionArray[j];
-              selectionArray[j] = selectionArray[minIndex];
-              selectionArray[minIndex] = temp;
+              int temp = selectionArray[j]; //Temporarily store the value at index j (the current position)
+              selectionArray[j] = selectionArray[minIndex]; // Replace the value at index j with the smallest value found
+              selectionArray[minIndex] = temp; // puts the original value from index j into the minIndex position
               selectionMoves++; //increase the moves counter
             }
 			//show results on the screen
@@ -109,8 +113,3 @@ import java.util.*;
 	  selectionSort();
 	}
 }
-
-
-
-
-
